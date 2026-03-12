@@ -25,3 +25,57 @@ Ou adicionar manualmente no arquivo /etc/exports
 sudo exportfs -ra
 sudo systemctl restart nfs-kernel-server
 ```
+# Criação do volume 
+## Opção 1
+```sh
+docker volume create -d vieux/sshfs \
+  -o sshcmd=usuario@troque-pelo-ip-ou-dns:/caminho/onde/foi/criada/a-pasta/dos-arquivos \
+  -o password=suasenha \
+  -o port=22 \
+  -o StrictHostKeyChecking=no \
+  -o UserKnownHostsFile=/dev/null \
+  -o allow_other \
+  -o default_permissions \
+  -o reconnect \
+  nome_do_volume
+```
+
+## Opção 2
+```sh
+docker volume create -d vieux/sshfs \
+  -o sshcmd=usuario@troque-pelo-ip-ou-dns:/caminho/onde/foi/criada/a-pasta/dos-arquivos \
+  -o password=minhasenha \
+  -o port=22 \
+  -o StrictHostKeyChecking=no \
+  -o UserKnownHostsFile=/dev/null \
+  -o allow_other \
+  -o default_permissions \
+  -o uid=33 \
+  -o gid=33 \
+  -o reconnect \
+  nome_do_volume
+```
+
+## Opção 3
+```sh
+docker volume create -d vieux/sshfs \
+  -o sshcmd=usuario@troque-pelo-ip-ou-dns:/caminho/onde/foi/criada/a-pasta/dos-arquivos \
+  -o identityfile=/root/.ssh/id_rsa \
+  -o port=22 \
+  -o StrictHostKeyChecking=no \
+  -o UserKnownHostsFile=/dev/null \
+  -o allow_other \
+  -o default_permissions \
+  -o reconnect \
+  nome_do_volume
+```
+
+## Opção 4
+```sh
+docker volume create \
+  --driver local \
+  --opt type=nfs \
+  --opt device=:/caminho/onde/foi/criada/a-pasta/dos-arquivos \
+  --opt o=addr=troque-pelo-ip-ou-dns,rw,nolock \
+  nome_do_volume
+```
