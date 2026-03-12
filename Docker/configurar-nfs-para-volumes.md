@@ -19,6 +19,6 @@ sudo exportfs -v
 ```sh
 echo "/volumes/develop/servicos *(rw,sync,no_subtree_check,no_root_squash)" | sudo tee -a /etc/exports
 ```
-<p>
-Ou adicionar manualmente no arquivo``` /etc/exports  
-</p>
+
+Ou adicionar manualmente no arquivo: ```/etc/exports  
+
