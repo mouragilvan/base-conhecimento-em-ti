@@ -11,9 +11,19 @@ sudo systemctl status nfs-kernel-server
 sudo exportfs -v
 ```
 
+## Ajustar a permissão do diretório no server de arquivos
+### Opção 1
+```sh
+sudo chown -R 82:82 /caminho/onde/foi/criada/a-pasta/dos-arquivos
+```
+
+### Opção 2
+```
+sudo chmod -R 755 /caminho/onde/foi/criada/a-pasta/dos-arquivos
+```
+
 ## Se não estiver configurado, adicionar:
 Inserir o caminho onde os arquivos estão no seu servidor de arquivos. Os diretórios de pasta. No exemplo abaixo é /volumes/develop/servicos
-
 
 ```sh
 echo "/volumes/develop/servicos *(rw,sync,no_subtree_check,no_root_squash)" | sudo tee -a /etc/exports
