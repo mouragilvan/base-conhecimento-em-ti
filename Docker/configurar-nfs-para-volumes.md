@@ -12,9 +12,8 @@ sudo exportfs -v
 ```
 
 ## Se não estiver configurado, adicionar:
-<p>
-  Inserir o caminho onde os arquivos estão no seu servidor de arquivos. Os diretórios de pasta. No exemplo abaixo é /volumes/develop/servicos
-</p>
+Inserir o caminho onde os arquivos estão no seu servidor de arquivos. Os diretórios de pasta. No exemplo abaixo é /volumes/develop/servicos
+
 
 ```sh
 echo "/volumes/develop/servicos *(rw,sync,no_subtree_check,no_root_squash)" | sudo tee -a /etc/exports
