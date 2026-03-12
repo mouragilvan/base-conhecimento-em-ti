@@ -19,5 +19,5 @@ Inserir o caminho onde os arquivos est√£o no seu servidor de arquivos. Os diret√
 echo "/volumes/develop/servicos *(rw,sync,no_subtree_check,no_root_squash)" | sudo tee -a /etc/exports
 ```
 
-Ou adicionar manualmente no arquivo: ```/etc/exports  
+Ou adicionar manualmente no arquivo:```/etc/exports  
 
