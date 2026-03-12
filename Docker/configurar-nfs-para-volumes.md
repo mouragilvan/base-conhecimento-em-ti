@@ -1,4 +1,4 @@
-## instalação do pacote do Linux
+## Instalação do pacote do Linux
 ```sh
 apt-get install nfs-common
 ```
