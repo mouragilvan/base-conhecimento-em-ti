@@ -18,6 +18,10 @@ Inserir o caminho onde os arquivos estão no seu servidor de arquivos. Os diret�
 ```sh
 echo "/volumes/develop/servicos *(rw,sync,no_subtree_check,no_root_squash)" | sudo tee -a /etc/exports
 ```
-
 Ou adicionar manualmente no arquivo /etc/exports  
 
+## Atualizar o serviço
+```sh 
+sudo exportfs -ra
+sudo systemctl restart nfs-kernel-server
+```
